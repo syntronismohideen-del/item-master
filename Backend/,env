@@ -1,0 +1,6 @@
+DB_HOST=Localhost
+DB_PORT=5432
+DB_NAME=itemdb
+DB_USER=postgres
+DB_PASS=Synmaheen@12
+PORT=5000
