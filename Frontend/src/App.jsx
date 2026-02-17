@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import API from "./api";
+import API from "./api/axios";
 import ItemTable from "./components/ItemTable";
 import ItemForm from "./components/ItemForm";
 import Modal from "./components/Modal";
