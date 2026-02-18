@@ -1,36 +1,49 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
-const Modal = ({ isOpen, onClose, children }) => {
+function Modal({ isOpen, title, onClose, children }) {
+  const Backdrop = motion.div;
+  const Panel = motion.section;
+
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div
-          className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50"
+        <Backdrop
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          onClick={onClose}   // 👈 close when clicking backdrop
+          onClick={onClose}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/45 p-4 backdrop-blur-sm"
         >
-          <motion.div
-            className="bg-white p-6 rounded-2xl shadow-2xl w-full max-w-md relative"
-            initial={{ scale: 0.8 }}
-            animate={{ scale: 1 }}
-            exit={{ scale: 0.8 }}
-            onClick={(e) => e.stopPropagation()} // 👈 prevent close inside modal
+          <Panel
+            initial={{ opacity: 0, scale: 0.96, y: 18 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.96, y: 18 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            onClick={(event) => event.stopPropagation()}
+            className="w-full max-w-lg rounded-3xl border border-white/70 bg-white p-6 shadow-2xl"
           >
-            <button
-              onClick={onClose}
-              className="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-lg"
-            >
-              ✕
-            </button>
-
+            <div className="mb-5 flex items-start justify-between gap-3">
+              <div>
+                <h2 className="text-xl font-bold text-slate-900">{title}</h2>
+                <p className="text-sm text-slate-500">
+                  Fill in the fields below to continue.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={onClose}
+                className="rounded-lg px-2 py-1 text-slate-500 transition hover:bg-slate-100 hover:text-slate-800"
+                aria-label="Close"
+              >
+                x
+              </button>
+            </div>
             {children}
-          </motion.div>
-        </motion.div>
+          </Panel>
+        </Backdrop>
       )}
     </AnimatePresence>
   );
-};
+}
 
 export default Modal;
