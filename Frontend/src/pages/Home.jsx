@@ -62,12 +62,11 @@ function Home() {
               <p className="mb-2 inline-flex rounded-full border border-cyan-200/60 bg-white/70 px-3 py-1 text-xs font-semibold tracking-wide text-cyan-700">
                 INVENTORY DASHBOARD
               </p>
-              <h1 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
+              <h1 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl" id="item">
                 Item Master
               </h1>
               <p className="mt-2 max-w-xl text-sm text-slate-600">
-                A clean modular CRUD app with faster workflows, smoother
-                animations, and better visual feedback.
+                List Items. In here its Stores Your items
               </p>
             </div>
             <Button onClick={handleCreateClick} variant="primary">

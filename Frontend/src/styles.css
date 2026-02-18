@@ -72,3 +72,6 @@ body {
     border-radius: 8px;
     color: black;
 }
+#item{
+    align-items: center;
+}
