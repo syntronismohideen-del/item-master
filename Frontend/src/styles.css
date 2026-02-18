@@ -8,6 +8,7 @@ body {
     padding: 40px;
     max-width: 900px;
     margin: auto;
+    color: black;
 }
 
 .form {
@@ -42,6 +43,7 @@ body {
     display: flex;
     gap: 10px;
     margin-top: 10px;
+    color: black;
 }
 
 .view {
@@ -54,7 +56,7 @@ body {
 
 .delete {
     background: #e74c3c;
-    color: white;
+    color: red;
     border: none;
     padding: 6px 10px;
     cursor: pointer;
@@ -67,4 +69,5 @@ body {
     background: white;
     margin-top: 50px;
     border-radius: 8px;
+    color: black;
 }
